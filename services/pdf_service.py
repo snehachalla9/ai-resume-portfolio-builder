@@ -1,10 +1,9 @@
 import io
-import pytesseract
-from pdf2image import convert_from_bytes
+import pdfplumber
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
-def generate_resume_pdf(data,template):
+def generate_resume_pdf(data, template):
     buffer = io.BytesIO()
     c = canvas.Canvas(buffer, pagesize=A4)
 
@@ -43,14 +42,13 @@ def generate_resume_pdf(data,template):
     c.showPage()
     c.save()
     buffer.seek(0)
-
     return buffer
 
+
 def extract_text_from_resume(uploaded_file):
-    images = convert_from_bytes(uploaded_file.read())
     text = ""
-
-    for img in images:
-        text += pytesseract.image_to_string(img)
-
+    with pdfplumber.open(uploaded_file) as pdf:
+        for page in pdf.pages:
+            text += page.extract_text() or ""
     return text
+
