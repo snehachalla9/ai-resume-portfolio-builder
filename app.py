@@ -4,7 +4,7 @@ from pages_ui.home import show_home
 from pages_ui.resume_analyzer import show_resume_analyzer
 from pages_ui.resume_templates import show_resume_templates
 from pages_ui.build_resume import show_build_resume
-from pages_ui.portfoilo_Builder import   show_portfolio_builder
+from pages_ui.portfoilo_builder import   show_portfolio_builder
 from pages_ui.myaccount import my_account
 if "logged_in" not in st.session_state:
     st.session_state.logged_in=False
