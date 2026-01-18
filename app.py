@@ -1,11 +1,11 @@
 import streamlit as st
 st.set_page_config(page_title="AI RESUME AND PORTFOLIO BUILDER")
-from pages_ui.home import show_home
-from pages_ui.resume_analyzer import show_resume_analyzer
-from pages_ui.resume_templates import show_resume_templates
-from pages_ui.build_resume import show_build_resume
-from pages_ui.portfoilo_builder import   show_portfolio_builder
-from pages_ui.myaccount import my_account
+from home import show_home
+from resume_analyzer import show_resume_analyzer
+from resume_templates import show_resume_templates
+from build_resume import show_build_resume
+from portfoilo_builder import   show_portfolio_builder
+from myaccount import my_account
 if "logged_in" not in st.session_state:
     st.session_state.logged_in=False
 if not st.session_state.logged_in:
