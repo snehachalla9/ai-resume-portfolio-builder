@@ -1,7 +1,7 @@
 import streamlit as st
 
 def show_portfolio_builder():
-    st.title("Portfolio Builder")
+    st.title("Portfolio builder")
 
     name = st.text_input("Your Name")
     role = st.text_input("Your Role (e.g. AI Engineer)")
